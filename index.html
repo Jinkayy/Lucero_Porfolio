@@ -1,146 +1,503 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lucero Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <script>
+    (function () {
+      try {
+        const saved = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const isDark = saved ? saved === "dark" : prefersDark;
+        if (isDark) document.documentElement.classList.add("dark");
+      } catch (e) {}
+    })();
+  </script>
+
+  <title>Lucero Portfolio</title>
+
+  <!-- Fonts + Font Awesome allowed -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
+  <!-- Header -->
+  <header class="header">
+    <!-- Left logo -->
+    <a href="#home" class="logo" aria-label="Go to home">
+      <span class="logo-script">Jinky's</span><span class="logo-mark">FL</span>
+    </a>
 
-    <header class="header">
-        <a href="#" class="logo">Jinkay 07</a>
-        <nav class="navbar">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#portfolio">Portfolio</a>
-            <a href="#contact">Contacts</a>
-        </nav>
-    </header>
+    <!-- Centered navbar (KEEP EXACT STRUCTURE) -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#certificates">Certificates</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contacts</a>
+    </nav>
 
-    <section class="home" id="home">
-        <div class="home-content">
-            <h1>
-                Hello, It's Me <br>
-                Jinky Lucero!
-            </h1>
-            <h3>And I am Adventurous Person</h3>
-            <p>I am a information technology student.</p>
-            <div class="social-media">
-                <a href="https://instagram.com/itsjnky_lcro" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
-                <a href="https://m.me/jinkylucero12@gmail.com" target="_blank" rel="noopener"><i class="fab fa-facebook-messenger"></i></a>
-                <a href="https://tiktok.com/@lcr_jnk29" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i></a>
-                <a href="https://t.me/jnkylcro14" target="_blank" rel="noopener"><i class="fab fa-telegram"></i></a>
+    <!-- Right controls -->
+    <div class="header-controls">
+      <a class="btn btn-ghost" href="LuceroCV.pdf" download>Download CV</a>
+
+      <!-- Must use exact markup -->
+      <button type="button" class="theme-toggle" id="themeToggle"
+        aria-pressed="false" aria-label="Toggle theme">
+        <i class="fas fa-moon moon-icon" aria-hidden="true"></i>
+        <i class="fas fa-sun sun-icon" aria-hidden="true"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main>
+    <!-- HOME -->
+    <section class="section hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <!-- typewriter targets -->
+          <p class="eyebrow"><span class="typewriter-hello" aria-hidden="true"></span></p>
+          <h1 class="hero-title"><span class="typewriter-name" aria-hidden="true"></span></h1>
+          <p class="hero-role">Information Technology Student • Web Developer</p>
+          <p class="hero-desc">
+            I build modern, responsive websites with clean UI, strong accessibility,
+            and smooth interactions — using HTML, CSS and JavaScript.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn" href="#projects">View Projects</a>
+            <a class="btn btn-ghost" href="#contact">Contact Me</a>
+          </div>
+
+          <div class="social">
+            <a aria-label="Instagram" title="Instagram" href="https://www.instagram.com/itsjnky_lcro/" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-instagram" aria-hidden="true"></i>
+              <span class="sr-only">Instagram</span>
+            </a>
+            <a aria-label="LinkedIn" title="LinkedIn" href="https://www.linkedin.com/in/jinky-lucero-14b8a5398/" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-linkedin" aria-hidden="true"></i>
+              <span class="sr-only">LinkedIn</span>
+            </a>
+            <a aria-label="TikTok" title="TikTok" href="https://www.tiktok.com/@lcr_jnk29" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-tiktok" aria-hidden="true"></i>
+              <span class="sr-only">TikTok</span>
+            </a>
+            <a aria-label="Telegram" title="Telegram" href="https://t.me/jnkylcro14" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-telegram" aria-hidden="true"></i>
+              <span class="sr-only">Telegram</span>
+            </a>
+            <a aria-label="GitHub" title="GitHub" href="https://github.com/Jinkayy" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-github" aria-hidden="true"></i>
+              <span class="sr-only">GitHub</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="avatar-wrap">
+            <img class="avatar" src="Photo/Profile.jpg" alt="Portrait of Jinky Lucero" />
+            <div class="avatar-glow" aria-hidden="true"></div>
+          </div>
+
+          <div class="mini-stats">
+            <div class="stat">
+              <p class="stat-num">6+</p>
+              <p class="stat-label">Certificates</p>
             </div>
-            <a href="#about" class="btn">More About Me</a>
+            <div class="stat">
+              <p class="stat-num">3+</p>
+              <p class="stat-label">Projects</p>
+            </div>
+            <div class="stat">
+              <p class="stat-num">100%</p>
+              <p class="stat-label">Responsive</p>
+            </div>
+          </div>
         </div>
-        <div class="home-img">
-            <img src="Picture.jpg" alt="Jinky Lucero">
-        </div>
+      </div>
     </section>
 
-    <section class="about" id="about">
-        <div class="about-container">
-            <div class="about-img">
-                <img src="Picture.jpg" alt="Jinky Lucero">
-            </div>
-            <div class="about-content">
-                <h2>About Me</h2>
-                <p>Hi! I'm Jinky Lucero, a passionate information technology student with a love for web development and creative problem solving. I enjoy building unique digital experiences and learning new technologies.</p>
-                <ul>
-                    <li><strong>Education:</strong> B.Sc. Information Technology, 2025</li>
-                    <li><strong>Interests:</strong> Adventurous, UI/UX, Photography, Gaming</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="container">
+        <header class="section-head">
+          <p class="kicker">ABOUT ME</p>
+          <h2>Who I am</h2>
+          <p class="subtext">
+            A passionate IT student focused on clean front-end UI, modern layouts, and practical projects.
+          </p>
+        </header>
 
-    <section class="skills" id="skills">
-        <h2>My Skills</h2>
-        <div class="skills-container">
-            <div class="skill">
+        <div class="about-grid">
+          <article class="glass">
+            <h3>Bio</h3>
+            <p>
+              Hi! I'm Jinky Lucero. I enjoy building modern web interfaces and learning new tools.
+              I like turning ideas into responsive websites with good structure and accessibility.
+            </p>
+            <ul class="about-list">
+              <li><span>📍</span> Capiz, Philippines</li>
+              <li><span>🎓</span> Information Technology</li>
+              <li><span>✨</span> UI/UX, Web Development, Problem Solving</li>
+            </ul>
+          </article>
+
+          <article class="glass">
+            <h3>Skills</h3>
+            <div class="chips">
+              <span class="chip">HTML</span>
+              <span class="chip">CSS</span>
+              <span class="chip">JavaScript</span>
+              <span class="chip">Tailwind CSS</span>
+              <span class="chip">TypeScript</span>
+              <span class="chip">Python</span>
+              <span class="chip">Django</span>
+              <span class="chip">Laravel</span>
+              <span class="chip">MySQL</span>
+            </div>
+
+            <div class="bars" aria-label="Skill levels">
+              <div class="bar">
                 <span>HTML</span>
-                <div class="progress-bar"><div class="progress" style="width: 90%"></div></div>
-            </div>
-            <div class="skill">
+                <span class="muted">Advanced</span>
+                <div class="track"><div class="fill" style="width: 90%"></div></div>
+              </div>
+              <div class="bar">
                 <span>CSS</span>
-                <div class="progress-bar"><div class="progress" style="width: 85%"></div></div>
-            </div>
-            <div class="skill">
+                <span class="muted">Advanced</span>
+                <div class="track"><div class="fill" style="width: 85%"></div></div>
+              </div>
+              <div class="bar">
                 <span>JavaScript</span>
-                <div class="progress-bar"><div class="progress" style="width: 80%"></div></div>
+                <span class="muted">Intermediate</span>
+                <div class="track"><div class="fill" style="width: 78%"></div></div>
+              </div>
             </div>
-            <div class="skill">
-                <span>React</span>
-                <div class="progress-bar"><div class="progress" style="width: 70%"></div></div>
-            </div>
-            <div class="skill">
-                <span>Python</span>
-                <div class="progress-bar"><div class="progress" style="width: 75%"></div></div>
-            </div>
+          </article>
         </div>
+      </div>
     </section>
 
-    <section class="services" id="services">
-        </section>
+    <!-- CERTIFICATES -->
+    <section class="section" id="certificates">
+      <div class="container">
+        <header class="section-head center">
+          <p class="kicker">MY ACHIEVEMENTS</p>
+          <h2>Certificates &amp; Awards</h2>
+          <p class="subtext">A curated collection of my training certificates and accomplishments.</p>
+        </header>
 
-    <section class="portfolio" id="portfolio">
-        <h2>Portfolio</h2>
-        <div class="portfolio-container">
-            <div class="portfolio-item">
-                <img src="project1.jpg" alt="Project 1">
-                <div class="portfolio-info">
-                    <h3>Project One</h3>
-                    <p>Responsive website for a local business.</p>
-                    <a href="#" target="_blank">View Project</a>
-                </div>
+        <div class="grid cards-3">
+          <!-- Card 1 -->
+          <article class="card">
+            <div class="card-img">
+              <img src="Photo/linkedin cert 1.jpg" alt="Certificate - CSS for Developers" />
             </div>
-            <div class="portfolio-item">
-                <img src="project2.jpg" alt="Project 2">
-                <div class="portfolio-info">
-                    <h3>Project Two</h3>
-                    <p>Personal blog built with React.</p>
-                    <a href="#" target="_blank">View Project</a>
-                </div>
+            <div class="card-body">
+              <h3>Getting Started as a CSS for Developers</h3>
+              <p class="muted">Skills Learned:</p>
+              <div class="chips small">
+                <span class="chip">Web Development</span>
+                <span class="chip">SASS</span>
+                <span class="chip">Front-End Development</span>
+              </div>
             </div>
-            <div class="portfolio-item">
-                <img src="project3.jpg" alt="Project 3">
-                <div class="portfolio-info">
-                    <h3>Project Three</h3>
-                    <p>Photography portfolio site.</p>
-                    <a href="#" target="_blank">View Project</a>
-                </div>
+            <div class="card-foot">
+              <span class="muted">Issued: Dec 2025</span>
+              <a class="link"
+                 href="https://www.linkedin.com/learning/certificates/9e2a21e8d69e687e29bd7808bfb339f3b452347eec13f664f3c95a2540c90830"
+                 title="View Certificate - CSS for Developers"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                View Certificate <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+              </a>
             </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="card">
+            <div class="card-img">
+              <img src="Photo/linkedin cert 2.jpg" alt="Certificate - Introduction to Generative AI with GPT" />
+            </div>
+            <div class="card-body">
+              <h3>Introduction to Generative AI with GPT</h3>
+              <p class="muted">Skills Learned:</p>
+              <div class="chips small">
+                <span class="chip">GPT-4</span>
+                <span class="chip">Artificial Intelligence (AI)</span>
+                <span class="chip">Generative AI</span>
+              </div>
+            </div>
+            <div class="card-foot">
+              <span class="muted">Issued: Dec 2025</span>
+              <a class="link"
+                 href="https://www.linkedin.com/learning/certificates/0cba697603fe0ccc2226011f4601865e623a4427c3d15d936f47f8183e37e686"
+                 title="View Certificate - Tailwind CSS"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                View Certificate <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="card">
+            <div class="card-img">
+              <img src="Photo/linkedin cert 3.jpg" alt="Certificate - Cybersecurity Awareness: Malware" />
+            </div>
+            <div class="card-body">
+              <h3>Cybersecurity Awareness: Malware</h3>
+              <p class="muted">Skills Learned:</p>
+              <div class="chips small">
+                <span class="chip">Security Awareness</span>
+              </div>
+            </div>
+            <div class="card-foot">
+              <span class="muted">Issued: Dec 2025</span>
+              <a class="link"
+                 href="https://www.linkedin.com/learning/certificates/c5718e625fc6f13b205d45c0c3d726ae3c2067fb0ae1ec7565587f39c09d7035"
+                 title="View Certificate - TypeScript"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                View Certificate <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="card">
+            <div class="card-img">
+              <img src="Photo/simple learn cert.jpg" alt="Certificate - Introduction to SQL" />
+            </div>
+            <div class="card-body">
+              <h3>Introduction to SQL</h3>
+              <p class="muted">Skills Learned:</p>
+              <div class="chips small">
+                <span class="chip">Querying Data</span>
+                <span class="chip">Data Manipulation</span>
+                <span class="chip">Joining Tables</span>
+              </div>
+            </div>
+            <div class="card-foot">
+              <span class="muted">Issued: Dec 2025</span>
+              <a class="link"
+                 href="https://www.linkedin.com/in/jinky-lucero-14b8a5398/recent-activity/all/"
+                 title="View Certificate - Modern JavaScript"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                View Certificate <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 5 -->
+          <article class="card">
+            <div class="card-img">
+              <img src="Photo/wadhwani cert.jpg" alt="Certificate - Wadhwani Foundation" />
+            </div>
+            <div class="card-body">
+              <h3>Ignite Bootcamp - Venture Idea Development</h3>
+              <p class="muted">Skills Learned:</p>
+              <div class="chips small">
+                <span class="chip">Ideation</span>
+                <span class="chip">Prototyping</span>
+                <span class="chip">Business Modeling</span>
+                <span class="chip">Financial Planning</span>
+              </div>
+            </div>
+            <div class="card-foot">
+              <span class="muted">Issued: Dec 2025</span>
+              <a class="link"
+                 href="https://web.certificate.wfglobal.org/en/certificate?certificateId=693951f349e895be1f16833d"
+                 title="View Certificate - Responsive Web Design"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                View Certificate <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 6 -->
+          <article class="card">
+            <div class="card-img">
+              <img src="cert6.jpg" alt="Certificate - Full-Stack Project" />
+            </div>
+            <div class="card-body">
+              <h3>Full-Stack Project Completion</h3>
+              <p class="muted">Skills Learned:</p>
+              <div class="chips small">
+                <span class="chip">Full-Stack</span>
+                <span class="chip">Deployment</span>
+              </div>
+            </div>
+            <div class="card-foot">
+              <span class="muted">Issued: Dec 2025</span>
+              <a class="link"
+                 href="cert6.pdf"
+                 title="View Certificate - Full-Stack Project"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                View Certificate <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
         </div>
+      </div>
     </section>
 
-    <section class="contact" id="contact">
-        <h2>Contact Me</h2>
-        <form class="contact-form">
-            <div class="form-group">
-                <input type="text" name="name" placeholder="Jinky Lucero" required>
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+      <div class="container">
+        <header class="section-head center">
+          <p class="kicker">BROWSE MY RECENT</p>
+          <h2>Projects</h2>
+          <p class="subtext">Card-based showcase like your reference (image, chips, buttons).</p>
+        </header>
+
+        <!-- Projects: add data-images and working GitHub links -->
+        <div class="grid cards-3">
+          <article class="card project" data-images="Photo/Project 1.png.png,Photo/Project 2.png.png,Photo/Project 3.png.png,Photo/Project 4.png.png,Photo/Project 5.png.png,Photo/Project 6.png.png,Photo/Project 7.png.png,Photo/Project 8.png.png,Photo/Project 9.png.png" data-title="Library System">
+            <div class="card-img">
+              <img src="Photo/Library Systems.png" alt="Library System project preview" />
             </div>
-            <div class="form-group">
-                <input type="email" name="email" placeholder="lucerojinky16@gmail.com" required>
+            <div class="card-body">
+              <h3>Library System</h3>
+              <p class="muted">
+                System supporting CRUD operations for books and categories with a clean, simple, and user-friendly interface.
+              </p>
+              <div class="chips small">
+                <span class="chip">Laravel</span>
+                <span class="chip">Tailwind CSS</span>
+                <span class="chip">MYSQL</span>
+              </div>
             </div>
-            <div class="form-group">
-                <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+            <div class="card-actions">
+              <a class="btn btn-small btn-ghost" href="https://github.com/Jinkayy/Lucero_Midterm_Project/tree/master" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a class="btn btn-small preview-btn" href="#" data-open="imageViewer">Preview</a>
             </div>
-            <button type="submit" class="btn">Send Message</button>
-        </form>
-        <div class="contact-info">
-            <p><i class="fas fa-envelope"></i>lucerojinky16@email.com</p>
-            <p><i class="fas fa-phone"></i> +62 812-3456-7890</p>
-            <p><i class="fas fa-map-marker-alt"></i> Capiz, Philippines</p>
+          </article>
+
+          <article class="card project" data-images="Photo/Library MS Project 1.png.jpg,Photo/Library MS Project 2.png.jpg,Photo/Library MS Project 3.png.jpg,Photo/Library MS Project 4.png.jpg,Photo/Library MS Project 5.png.jpg,Photo/Library MS Project 6.png.jpg,Photo/Library MS Project 7.png.jpg,Photo/Library MS Project 8.png.jpg,Photo/Library MS Project 9.png.jpg," data-title="Library Management System">
+            <div class="card-img">
+              <img src="Photo/Library MS Project 10.png.jpg" alt="LMS project preview" />
+            </div>
+            <div class="card-body">
+              <h3>Library Management System</h3>
+              <p class="muted">
+                A Library Management System with Python, JavaScript, HTML, and CSS enables users to manage, organize, display, track, add, remove, and update books via an interactive, responsive interface.
+              </p>
+              <div class="chips small">
+                <span class="chip">Python</span>
+                <span class="chip">Javascript</span>
+                <span class="chip">CSS</span>
+                <span class="chip">HTML</span>
+              </div>
+            </div>
+            <div class="card-actions">
+              <a class="btn btn-small btn-ghost" href="https://github.com/meythegreat/group4_libraryms_project" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a class="btn btn-small preview-btn" href="#" data-open="imageViewer">Preview</a>
+            </div>
+          </article>
+
+          <article class="card project" data-images="Photo/P-Project 2.png.png,Photo/P-Project 3.png.png,Photo/P-Project 4.png.png," data-title="Lucero-Portfolio">
+            <div class="card-img">
+              <img src="Photo/P-Project 1.png.png" alt="Personal Information project preview" />
+            </div>
+            <div class="card-body">
+              <h3>Web-Based Portfolio</h3>
+              <p class="muted">
+                A web-based portfolio built with HTML and CSS showcases personal projects, skills, and achievements through a structured, visually appealing, and responsive design for easy online presentation.
+              </p>
+              <div class="chips small">
+                <span class="chip">HTML</span>
+                <span class="chip">CSS</span>
+              </div>
+            </div>
+            <div class="card-actions">
+              <a class="btn btn-small btn-ghost" href="https://github.com/Jinkayy/Jinky-Portfolio" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a class="btn btn-small preview-btn" href="#" data-open="imageViewer">Preview</a>
+            </div>
+          </article>
         </div>
+      </div>
     </section>
 
-    <footer>
-        <p>&copy; 2025 Jinky Lucero. All Rights Reserved.</p>
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="container">
+        <header class="section-head center">
+          <p class="kicker">CONTACT</p>
+          <h2>Let’s work together</h2>
+          <p class="subtext">Email, social links, and optional form.</p>
+        </header>
+
+        <div class="contact-grid">
+          <div class="glass">
+            <h3>Contact Info</h3>
+            <ul class="contact-list">
+              <li><i class="fa-solid fa-envelope"></i> <a class="link" href="mailto:lucerojinky16@gmail.com">lucerojinky16@gmail.com</a></li>
+              <li><i class="fa-solid fa-phone"></i> <a class="link" href="tel:+63 9388034616">+63 9456537399</a></li>
+              <li><i class="fa-solid fa-location-dot"></i> Capiz, Philippines</li>
+            </ul>
+
+            <div class="social" style="margin-top: 12px;">
+              <a aria-label="GitHub" href="https://github.com/Jinkayy" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+              <a aria-label="LinkedIn" href="https://www.linkedin.com/in/jinky-lucero-14b8a5398/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+              <a aria-label="Facebook" href="https://www.facebook.com/jinky.lucero.501/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+            </div>
+          </div>
+
+          <form class="glass form" id="contactForm">
+            <h3>Send a message</h3>
+            <label>
+              <span class="sr-only">Name</span>
+              <input name="name" type="text" placeholder="Your Name" required />
+            </label>
+            <label>
+              <span class="sr-only">Email</span>
+              <input name="email" type="email" placeholder="Your Email" required />
+            </label>
+            <label>
+              <span class="sr-only">Message</span>
+              <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+            </label>
+            <button class="btn" type="submit">Send Message</button>
+            <p class="muted tiny" id="formHint" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <p>© <span id="year"></span> Jinky Lucero. All Rights Reserved.</p>
+      </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- small overlay used for theme flash -->
+    <div id="themeFlash" aria-hidden="true"></div>
+
+    <!-- Image viewer (modal). Files referenced in data-images must exist in project folder -->
+    <div id="imageViewer" class="image-viewer" aria-hidden="true">
+      <div class="iv-overlay" data-close></div>
+      <div class="iv-panel" role="dialog" aria-modal="true" aria-label="Project preview">
+        <button class="iv-close" aria-label="Close preview">&times;</button>
+        <button class="iv-prev" aria-label="Previous image">&#10094;</button>
+        <img class="iv-image" src="" alt="">
+        <div class="iv-caption" aria-live="polite"></div>
+        <button class="iv-next" aria-label="Next image">&#10095;</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
